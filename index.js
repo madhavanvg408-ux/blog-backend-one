@@ -67,6 +67,16 @@ app.post("/api/blogs", async (req, res) => {
   }
 });
 
+
+app.get("/check", async (req, res) => {
+  try {
+    res.send("Server is running fine");
+  } catch (err) {
+    console.error("❌ ERROR:", err);
+    res.status(500).send("Something went wrong");
+  }
+})
+
 // Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
